@@ -23,9 +23,39 @@ export default defineConfig({
       { text: 'Nuget', link: 'https://www.nuget.org/packages/StarLight_Core' }
     ],
 
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇',
+    },
+
+    editLink: {
+      text: '在GitHub上编辑此页',
+      pattern: 'https://github.com/StarLight-Core/StarLight-Core.github.io/edit/main/docs/:path',
+    },
+
     footer: {
       message: "所有内容均以 CC BY-NC-SA 4.0 许可协议进行共享",
       copyright: "Copyright © Ink Marks Studio",
+    },
+
+    search: {
+      provider: 'local',
+      options: {
+        translations: {
+          button: {
+            buttonText: '搜索文档',
+            buttonAriaLabel: '搜索文档',
+          },
+          modal: {
+            noResultsText: '无法找到相关结果',
+            resetButtonTitle: '清除查询条件',
+            footer: {
+              selectText: '选择',
+              navigateText: '切换',
+            },
+          },
+        },
+      },
     },
 
     sidebar: [
@@ -33,6 +63,7 @@ export default defineConfig({
         text: '关于',
         items: [
           { text: '介绍', link: '/About/Introduction' },
+          { text: '关于', link: '/About/About' },
           { text: '快速开始', link: '/About/QuickStart' }
         ],
       },
@@ -45,22 +76,25 @@ export default defineConfig({
       {
         text: '安装器',
         items: [
-          { text: '启动器', link: '/Launcher/Launcher' }
+          { text: '游戏 安装器', link: '/Installer/Game' },
+          { text: 'Fabric 安装器', link: '/Installer/Fabric' },
+          { text: 'Forge 安装器', link: '/Installer/Forge' }
         ],
       },
       {
         text: '验证器',
         items: [
-          { text: '微软验证', link: '/Authentication/' },
-          { text: '外置验证', link: '/Authentication/' },
-          { text: '离线验证', link: '/Authentication/' },
-          { text: '统一通行证', link: '/Authentication/UnifiedPassAuthenticator' }
+          { text: '微软验证器', link: '/Authentication/' },
+          { text: '外置验证器', link: '/Authentication/' },
+          { text: '离线验证器', link: '/Authentication/' },
+          { text: '统一通行证', link: '/Authentication/UnifiedPass' }
         ],
       },
       {
         text: '查找器',
         items: [
-          { text: '启动器', link: '/Launcher/Launcher' }
+          { text: '游戏 搜寻器', link: '/Fetcher/Game' },
+          { text: 'Java 搜寻器', link: '/Fetcher/Java' }
         ],
       },
     ],
