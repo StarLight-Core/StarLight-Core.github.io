@@ -4,7 +4,7 @@ title: "介绍"
 
 # StarLight.Core
 
-#### 一个高效,模块化,全能的我的世界启动器核心
+### 一个高效,模块化,全能的我的世界启动器核心
 
 ## ✨特点
 - 🚀全功能:
@@ -48,32 +48,12 @@ title: "介绍"
 | Modrinth 下载   | ❌  |
 | 错误分析器         | ❌  |
 
-## 📘文档
-[StarLight_Core 使用文档与使用帮助](https://ink-marks-studio.github.io/)
+## 📘文档使用指南
+TODO
 
 ## 🗒️快速开始
+跳转到 [快速开始](/About/QuickStart)
 
-### 1.先决条件
-1.你的项目必须是使用C# .NET 6.0及以上.
-
-2.你的项目是在 Windows 平台为目标进行开发, 跨平台将在日后支持
-
-### 2.下载
-a. 通过任意包管理器搜索 `StarLight_Core` 进行安装
-
-b. 通过命令行进行安装
-```shell
-dotnet add package StarLight_Core
-```
-
-### 2-2.手动下载
-a. 在 [Nuget](https://www.nuget.org/packages/StarLight_Core) 中下载
-
-b. 在 [Github Packages](https://github.com/orgs/Ink-Marks-Studio/packages?repo_name=StarLight.Core) 中下载
-
-### 3.使用指南
-在文档 [StarLight_Core 使用文档与使用帮助](https://ink-marks-studio.github.io/docs/zh/guide/getting-started.html)
-中查看更多组件的使用教程
 
 ## 🌐讨论
 欢迎加入Q群: [971192670](https://qm.qq.com/q/FcmJDYRoDQ)
