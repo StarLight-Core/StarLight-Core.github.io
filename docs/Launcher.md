@@ -8,6 +8,8 @@ title: 启动器
 
 支持自动解压游戏文件，补全游戏文件
 
+命名空间 `` StarLight_Core.Launch ``
+
 ## 构造函数
 
 ```csharp
@@ -123,6 +125,9 @@ public async Task<LaunchResponse> LaunchAsync(Action<ProgressReport> onProgressC
 | onProgressChanged | Action\<ProgressReport\> | 启动进度报告 |
 
 ## 控制台示例
+
+>[!TIP]
+> 控制台示例只是为了更加方便的了解如何去使用, 不建议直接复制
 
 ```csharp
 LaunchConfig args = new() // 配置启动参数

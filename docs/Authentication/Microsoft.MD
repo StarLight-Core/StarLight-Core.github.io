@@ -4,90 +4,99 @@ title: "微软验证器"
 
 # 微软验证器
 
-微软正版验证
+用于拥有已购买游戏的玩家或游玩开启正版验证的服务器
+
+命名空间 `` StarLight_Core.Authentication ``
 
 ## 构造函数
 
-构造函数非常简单，提供了一种办法：
-
-``` csharp
-    public async ValueTask<MicrosoftAccount> MicrosoftAuthAsync(
-      StarLight_Core.Models.Authentication.GetTokenResponse tokenInfo,
-      Action<string> action,
-      string? refreshToken = null)
-    {
-
-    }
+```csharp
+public MicrosoftAuthentication(string clientId)
+{
+    ClientId = clientId;
+}
 ```
 
-| 参数       | 类型     | 描述                     |
-|----------|--------|------------------------|
-| tokenInfo | StarLight_Core.Models.Authentication.GetTokenResponse | Microsoft Token            |
-| action | Action<string> | 动作                |
-| refreshToken | string | 我不到啊,todo            |
+| 参数       | 类型     | 描述                    |
+|----------|--------|-----------------------|
+| clientId | string | 在 Azure 中注册的 ClientId |
+
+> [!IMPORTANT]
+> 自2023年6月15日起, 新申请的 ClientId 必须向 Mojang 提交申请才能访问 Minecraft 账户 [详细信息](https://help.minecraft.net/hc/en-us/articles/16254801392141p)
+
+## 方法参考
+
+### ``RetrieveDeviceCodeInfo`` 获取设备代码
+```csharp
+public async ValueTask<RetrieveDeviceCode> RetrieveDeviceCodeInfo()
+```
+
+| 返回值                | 描述                                                              |
+|--------------------|-----------------------------------------------------------------|
+| RetrieveDeviceCode | [参数详解](/Authentication/Microsoft.html#详细-retrievedevicecode-定义) |
+
+### ``GetTokenResponse`` 轮询获取 Token
+```csharp
+public async ValueTask<GetTokenResponse> GetTokenResponse(RetrieveDeviceCode deviceCodeInfo)
+```
+
+| 参数             | 类型                 | 描述                                                              |
+|----------------|--------------------|-----------------------------------------------------------------|
+| deviceCodeInfo | RetrieveDeviceCode | [参数详解](/Authentication/Microsoft.html#详细-retrievedevicecode-定义) |
+
+| 返回值              | 描述                                                            |
+|------------------|---------------------------------------------------------------|
+| GetTokenResponse | [参数详解](/Authentication/Microsoft.html#详细-gettokenresponse-定义) |
+
+### ``MicrosoftAuthAsync`` 异步验证方法
+```csharp
+public async ValueTask<MicrosoftAccount> MicrosoftAuthAsync(GetTokenResponse tokenInfo, Action<string> action, string? refreshToken = null)
+```
+
+| 参数                  | 类型               | 描述                                                              |
+|---------------------|------------------|-----------------------------------------------------------------|
+| tokenInfo           | GetTokenResponse | [参数详解](/Authentication/Microsoft.html#详细-retrievedevicecode-定义) |
+| action              | Action\<string\> | 进度报告                                                            |
+| refreshToken = null | string?          | 刷新令牌                                                            |
+
+| 返回值              | 描述    |
+|------------------|-------|
+| MicrosoftAccount | 微软账户类 |
 
 ## 参数详解
 
-### 详细```TokenInfo```定义
+### 详细 ``RetrieveDeviceCode`` 定义
 
-``` csharp
-    public async ValueTask<StarLight_Core.Models.Authentication.GetTokenResponse> GetTokenResponse(
-      RetrieveDeviceCode deviceCodeInfo)
-    {
+| 参数              | 类型     | 描述                    |
+|-----------------|--------|-----------------------|
+| DeviceCode      | string | 设备代码                  |
+| UserCode        | string | 用户代码                  |
+| ClientId        | string | 在 Azure 中获取的 ClientId |
+| VerificationUri | string | 登录地址                  |
+| Message         | string | 提示消息                  |
 
-    }
-```
+### 详细 ``GetTokenResponse`` 定义
 
-| 参数       | 类型     | 描述                     |
-|----------|--------|------------------------|
-| deviceCodeInfo | RetrieveDeviceCode | 设备代码            |
+| 参数           | 类型     | 描述                    |
+|--------------|--------|-----------------------|
+| AccessToken  | string | 资源令牌                  |
+| RefreshToken | string | 刷新令牌                  |
+| ClientId     | string | 在 Azure 中获取的 ClientId |
+| ExpiresIn    | int    | 过期时间                  |
 
-### 详细```deviceCodeInfo```定义
+## 控制台示例
 
-``` csharp
-    public async ValueTask<RetrieveDeviceCode> RetrieveDeviceCodeInfo()
-    {
-      RetrieveDeviceCode retrieveDeviceCode = !string.IsNullOrEmpty(this.ClientId) ? JsonSerializer.Deserialize<RetrieveDeviceCode>(await HttpUtil.SendHttpPostRequest("https://login.microsoftonline.com/consumers/oauth2/v2.0/devicecode", "client_id=" + this.ClientId + "&scope=" + string.Join(" ", MicrosoftAuthentication.Scopes))) : throw new ArgumentNullException("ClientId", "ClientId为空");
-      return new RetrieveDeviceCode()
-      {
-        ClientId = this.ClientId,
-        UserCode = retrieveDeviceCode.UserCode,
-        DeviceCode = retrieveDeviceCode.DeviceCode,
-        VerificationUri = retrieveDeviceCode.VerificationUri,
-        Message = retrieveDeviceCode.Message
-      };
-    }
-```
+>[!TIP]
+> 控制台示例只是为了更加方便的了解如何去使用, 不建议直接复制
 
-### 详细```MicrosoftAuthentication```定义
-
-``` csharp
-public MicrosoftAuthentication(string clientId) => this.ClientId = clientId;
-```
-
-| 参数       | 类型     | 描述                     |
-|----------|--------|------------------------|
-| clientId(MicrosoftAuthentication) | string | 在Azure注册并通过MoJang问卷的客户端代码            |
-
-## 控制台
-
-``` csharp
-                var auth = new MicrosoftAuthentication("Your Client Id");//替换成你的ClientId
-                var code = await auth.RetrieveDeviceCodeInfo();
-                Clipboard.Clear();
-                Clipboard.SetText(code.UserCode);
-                MessageBox.Show(code.UserCode);
-                Process.Start(new ProcessStartInfo(code.VerificationUri)
-                {
-                    UseShellExecute = true,
-                    Verb = "open"
-                });
-                var token = await auth.GetTokenResponse(code);
-                MsaToken = token;
-                MsaAuth = auth;
-                    account = await auth.MicrosoftAuthAsync(token, x =>
-                    {
-                        AccountText.Text = x;
-                    });
-                    AccountText.Text = "你今天看起来很聪明，" + account.Name + "！";
+```csharp
+var auth = new MicrosoftAuthentication(clientId);
+var deviceCodeInfo = await auth.RetrieveDeviceCodeInfo();
+Console.WriteLine(deviceCodeInfo.UserCode + " " + deviceCodeInfo.VerificationUri);
+// 打开 deviceCodeInfo.VerificationUri 引导用户在其间输入 deviceCodeInfo.UserCode 以便完成登录
+var tokenInfo = await auth.GetTokenResponse(deviceCodeInfo);
+var userInfo = await auth.MicrosoftAuthAsync(tokenInfo, x =>
+{
+    Console.WriteLine(x); // 当前进度输出
+});
 ```
