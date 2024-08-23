@@ -1,6 +1,9 @@
 ---
+editLink: false
 layout: page
+title: "关于"
 ---
+
 <script setup>
 import {
   VPTeamPage,

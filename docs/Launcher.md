@@ -1,6 +1,5 @@
 ﻿---
 title: 启动器
-editLink: true
 ---
 
 # 启动器
