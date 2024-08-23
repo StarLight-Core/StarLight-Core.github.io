@@ -70,7 +70,7 @@ export default defineConfig({
       {
         text: '启动器',
         items: [
-          { text: '启动器', link: '/Launcher/Launcher' }
+          { text: '启动器', link: '/Launcher' }
         ],
       },
       {
@@ -84,16 +84,16 @@ export default defineConfig({
       {
         text: '验证器',
         items: [
-          { text: '微软验证器', link: '/Authentication/' },
-          { text: '外置验证器', link: '/Authentication/' },
-          { text: '离线验证器', link: '/Authentication/' },
+          { text: '微软验证器', link: '/Authentication/Microsoft' },
+          { text: '外置验证器', link: '/Authentication/Yggdrasil' },
+          { text: '离线验证器', link: '/Authentication/Offline' },
           { text: '统一通行证', link: '/Authentication/UnifiedPass' }
         ],
       },
       {
         text: '查找器',
         items: [
-          { text: '游戏 搜寻器', link: '/Fetcher/Game' },
+          { text: '版本 搜寻器', link: '/Fetcher/Version' },
           { text: 'Java 搜寻器', link: '/Fetcher/Java' }
         ],
       },

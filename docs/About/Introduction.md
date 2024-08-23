@@ -1,5 +1,6 @@
 ---
 title: "介绍"
+editLink: false
 ---
 
 # StarLight.Core
@@ -17,6 +18,9 @@ title: "介绍"
   您可以在 Github 上查看完全开放的源代码, 使用 MIT 协议, 您可以参考学习等
 
 ## 📜支持列表
+
+> [!TIP]
+> StarLight.Core 仍在积极开发中, 但由于开发者学业繁重, 我们非常欢迎您参与到项目的开发
 
 ✅: 已支持的功能
 
