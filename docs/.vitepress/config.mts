@@ -70,7 +70,7 @@ export default defineConfig({
       {
         text: '启动器',
         items: [
-          { text: '启动器', link: '/Launcher/Launcher' }
+          { text: '启动器', link: '/Launcher' }
         ],
       },
       {
