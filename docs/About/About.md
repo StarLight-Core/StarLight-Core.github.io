@@ -51,7 +51,15 @@ const members = [
     links: [
       { icon: 'github', link: 'https://github.com/FutureStudios-FSC' }
     ]
-  },
+  },  
+  {
+    avatar: 'https://github.com/CNwenwen.png',
+    name: 'CNwenwen',
+    title: '贡献者',
+    links: [
+      { icon: 'github', link: 'https://github.com/CNwenwen' }
+    ]
+  }
 ];
 
 </script>

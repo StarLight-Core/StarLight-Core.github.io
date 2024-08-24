@@ -2,6 +2,8 @@
 
 用于启用统一通行证验证的服务器，通过账户以及密码进行登录验证，支持刷新验证
 
+命名空间 `` StarLight_Core.Authentication ``
+
 ## 构造函数
 
 ```csharp
