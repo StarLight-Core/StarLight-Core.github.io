@@ -4,17 +4,11 @@ title: "Java 搜寻器"
 
 # Java 搜寻器
 
-StarLight.Core的Java搜寻器和游戏核心版本搜寻器类似，可以返回一个Java虚拟机版本的集合。
+Java搜寻器用于获取所有的Java版本和其信息
 
-::: tip
+命名空间 `StarLight_Core.Utilities`
 
-使用版本搜寻器需要引用工具类，
-
-请提前引用 StarLight_Core.Utilities。
-
-:::
-
-## 获取所有Java虚拟机版本
+## 构造函数
 
 `JavaUtil.GetJavas` 可以获取所有Java虚拟机，并返回集合。
 
