@@ -8,30 +8,49 @@ Java搜寻器用于获取所有的Java版本和其信息
 
 命名空间 `StarLight_Core.Utilities`
 
-## 构造函数
+## 方法参考
 
-`JavaUtil.GetJavas` 可以获取所有Java虚拟机，并返回集合。
-
-使用这个函数非常方便，并不需要参数。
-
-使用方法如下：
+### `JavaUtil.GetJavas` 获取所有Java虚拟机
 
 ```csharp
-JavaUtil.GetJavas()
+public static IEnumerable<JavaInfo> GetJavas()
 ```
 
-当然，获取到的信息可以直接使用，也可以在如下函数传入Java路径，并获取特定版本的信息。
+该方法不需要参数，可以直接返回所有Java的信息集合，
 
-## 获取单一版本的信息
+有关详细信息，请参见下方文档。
 
-`JavaUtil.GetJavaInfo` 只需传入Java虚拟机所在的路径，即可获取该虚拟机的信息。
+>[!TIP]
+>搜寻器获取到的信息可以直接使用，每个版本的信息结构与下方相同。
 
-该函数的使用方法如下：
+### `JavaUtil.GetJavaInfo` 获取单一Java虚拟机的信息
 
 ```csharp
-JavaUtil.GetJavaInfo(string javaPath)
+public static JavaInfo GetJavaInfo(string javaPath)
 ```
 
 | 参数 | 类型 | 描述 |
 | :----: | :----: | :---------------: |
-| javaPath | string | Java虚拟机的所在路径 |
+| javaPath | string | Java虚拟机的所在路径（javaw可执行文件的绝对路径） |
+
+## 参数详解
+
+### 详细 `JavaInfo` 定义
+
+| 参数 | 类型 | 描述 |
+| :----: | :----: | :---------------: |
+| Is64Bit | bool | 是否为64位Java版本 |
+| JavaVersion | string | Java的版本号（如17.0.0.3） |
+| JavaSlugVersion | int | Java版本号的缩写（如17.0.0.3对应的SlugVersion为17） |
+| JavaPath | string | Java虚拟机的路径（javaw可执行文件的绝对路径） |
+| JavaLibraryPath | string | Java运行库的路径（我猜？） |
+
+## 控制台示例
+
+>[!TIP]
+>控制台示例只是为了更加方便的了解如何去使用, 不建议直接复制
+
+```csharp
+var javaList = JavaUtil.GetJavas();
+var javaVers = JavaUtil.GetJavaInfo().JavaVersion;
+```
