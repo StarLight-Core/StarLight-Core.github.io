@@ -12,7 +12,7 @@ hero:
       link: /About/Introduction
     - theme: alt
       text: 常见问题
-      link: /About/Introduction
+      link: /About/Introduction.html#📘文档使用指南
   image:
     src: /logo.png
     alt: StarLight Core Logo
