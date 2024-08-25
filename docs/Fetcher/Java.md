@@ -1,8 +1,8 @@
 ---
-title: "Java 搜寻器"
+title: "Java 查找器"
 ---
 
-# Java 搜寻器
+# Java 查找器
 
 Java搜寻器用于获取所有的Java版本和其信息
 
