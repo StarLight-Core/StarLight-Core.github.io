@@ -35,7 +35,7 @@ public static GameCoreInfo GetGameCore(string versionId, string root = ".minecra
 
 | 参数 | 类型 | 描述 |
 | :----: | :----: | :---------------: |
-| versionId | string | 游戏版本Id（文件夹名） |
+| versionId | string | 游戏核心Id（文件夹名） |
 | root | string | 游戏根目录，可以是绝对/相对，默认.minecraft | 
 
 ## 参数详解
@@ -44,11 +44,21 @@ public static GameCoreInfo GetGameCore(string versionId, string root = ".minecra
 
 | 参数 | 类型 | 描述 |
 | :----: | :----: | :---------------: |
-| Arguments | ArgumentsJson（集合） | 游戏和Java虚拟机参数 |
+| Arguments | ArgumentsJson（集合） | 游戏核心和Java虚拟机参数 |
 | Assets | string | TODO |
 | Exception | Exception | TODO |
-| Id | string | 游戏版本Id（文件夹名） |
+| Id | string | 游戏核心Id（文件夹名） |
 | InheritsFrom | string | TODO |
+| IsNewVersion | bool | 是否为新版本 |
+| JavaVersion | int | 建议的Java虚拟机版本 |
+| LoaderType | string | 核心的加载器类型，无加载器则为vanilla |
+| MainClass | string | TODO |
+| MinecraftArguments | string | 游戏核心参数 |
+| ReleaseTime | string | 该版本的发布时间 |
+| Time | string | 同上 |
+| root | string | 游戏核心根目录的绝对路径 |
+| Type | string | 游戏核心类型，如正式版为release |
+| Version | string | 游戏核心版本（注意不要和Id混淆） |
 
 ## 控制台示例
 
