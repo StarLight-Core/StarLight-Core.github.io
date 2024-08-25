@@ -10,62 +10,77 @@ title: "版本 搜寻器"
 
 ## 方法参考
 
+> [!TIP]
+> 搜寻器均提供了静态方法, 可以直接调用, 无需实例化
+
 ### `GameCoreUtil.GetGameCores` 获取目录下的所有版本
 
 ```csharp
 public static IEnumerable<GameCoreInfo> GetGameCores(string root = ".minecraft")
 ```
 
-| 参数 | 类型 | 描述 |
-| :----: | :----: | :---------------: |
-| root | string | 游戏根目录，可以是绝对/相对，默认.minecraft |
+| 参数                  | 类型     | 描述             |
+|---------------------|--------|----------------|
+| root = ".minecraft" | string | 游戏根目录, 可以为相对路径 |
 
-该方法需要传入.minecraft版本目录的路径，可以直接返回目录下的游戏核心的信息集合，
+该方法需要传入游戏根目录的路径，可以直接返回指定目录下的游戏核心的信息集合
 
-有关详细信息，请参见下方文档。
+| 返回值                         | 描述                                               |
+|-----------------------------|--------------------------------------------------|
+| IEnumerable\<GameCoreInfo\> | [参数详解](/Fetcher/Version.html#详细-gamecoreinfo-定义) |
 
->[!TIP]
->搜寻器获取到的信息可以直接使用，每个版本的信息结构与下方相同。
-
-### `GameCoreUtil.GetGameCore` 获取单一版本的信息
+### `GameCoreUtil.GetGameCore` 获取指定版本的信息
 
 ```csharp
 public static GameCoreInfo GetGameCore(string versionId, string root = ".minecraft")
 ```
 
-| 参数 | 类型 | 描述 |
-| :----: | :----: | :---------------: |
-| versionId | string | 游戏核心Id（文件夹名） |
-| root | string | 游戏根目录，可以是绝对/相对，默认.minecraft | 
+|    参数     |   类型   |       描述       |
+|:---------:|:------:|:--------------:|
+| versionId | string |      版本名称      |
+|   root    | string | 游戏根目录, 可以为相对路径 | 
+
+| 返回值          | 描述                                               |
+|--------------|--------------------------------------------------|
+| GameCoreInfo | [参数详解](/Fetcher/Version.html#详细-gamecoreinfo-定义) |
 
 ## 参数详解
 
 ### 详细 `GameCoreInfo` 定义
 
-| 参数 | 类型 | 描述 |
-| :----: | :----: | :---------------: |
-| Arguments | ArgumentsJson（集合） | 游戏核心和Java虚拟机参数 |
-| Assets | string | TODO |
-| Exception | Exception | TODO |
-| Id | string | 游戏核心Id（文件夹名） |
-| InheritsFrom | string | TODO |
-| IsNewVersion | bool | 是否为新版本 |
-| JavaVersion | int | 建议的Java虚拟机版本 |
-| LoaderType | string | 核心的加载器类型，无加载器则为vanilla |
-| MainClass | string | TODO |
-| MinecraftArguments | string | 游戏核心参数 |
-| ReleaseTime | string | 该版本的发布时间 |
-| Time | string | 同上 |
-| root | string | 游戏核心根目录的绝对路径 |
-| Type | string | 游戏核心类型，如正式版为release |
-| Version | string | 游戏核心版本（注意不要和Id混淆） |
+|      参数      |    类型     |      描述      |
+|:------------:|:---------:|:------------:|
+|    Assets    |  string   |     资源版本     |
+|  Exception   | Exception |     错误信息     |
+|      Id      |  string   |     版本名称     |
+| InheritsFrom |  string   |     继承版本     |
+| JavaVersion  |    int    | 建议的 Java 版本  |
+|  LoaderType  |  string   |   模组加载器类型    |
+|  MainClass   |  string   |     主类名      |
+| ReleaseTime  |  string   |    版本发布时间    |
+|     Time     |  string   |    版本更新时间    |
+|     root     |  string   | 游戏核心根目录的绝对路径 |
+|     Type     |  string   |    游戏核心类型    |
+|   Version    |  string   |     游戏版本     |
+
+> [!IMPORTANT]
+> 当错误信息不为空时, 即表示当前的版本存在问题, 可用于判断是否为错误的版本
+
+> [!TIP]
+> 模组加载器类型: 原版为 Vanilla , 其他为对应的类型, 例如 Fabric
+
+> [!TIP]
+> 版本的发布及更新时间为 ISO 8601 格式化的数据
 
 ## 控制台示例
 
->[!TIP]
->控制台示例只是为了更加方便的了解如何去使用, 不建议直接复制
+> [!TIP]
+> 控制台示例只是为了更加方便的了解如何使用, 不建议直接复制
 
 ```csharp
+// 获取所有版本信息集合
 var javaList = JavaUtil.GetJavas();
-var javaVers = JavaUtil.GetJavaInfo().JavaVersion;
+
+// 获取指定版本信息
+var javaVersion = JavaUtil.GetJavaInfo();
 ```
