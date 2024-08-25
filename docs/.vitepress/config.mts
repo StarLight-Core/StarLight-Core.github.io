@@ -93,8 +93,8 @@ export default defineConfig({
       {
         text: '查找器',
         items: [
-          { text: '版本 搜寻器', link: '/Fetcher/Version' },
-          { text: 'Java 搜寻器', link: '/Fetcher/Java' }
+          { text: '版本 查找器', link: '/Fetcher/Version' },
+          { text: 'Java 查找器', link: '/Fetcher/Java' }
         ],
       },
     ],
