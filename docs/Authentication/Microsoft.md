@@ -86,8 +86,8 @@ public async ValueTask<MicrosoftAccount> MicrosoftAuthAsync(GetTokenResponse tok
 
 ## 控制台示例
 
->[!TIP]
-> 控制台示例只是为了更加方便的了解如何去使用, 不建议直接复制
+> [!TIP]
+> 控制台示例只是为了更加方便的了解如何使用, 不建议直接复制
 
 ```csharp
 var auth = new MicrosoftAuthentication(clientId);

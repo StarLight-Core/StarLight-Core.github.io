@@ -10,47 +10,52 @@ Java搜寻器用于获取所有的Java版本和其信息
 
 ## 方法参考
 
-### `JavaUtil.GetJavas` 获取所有Java虚拟机
+> [!TIP]
+> 搜寻器均提供了静态方法, 可以直接调用, 无需实例化
+
+### `JavaUtil.GetJavas` 获取已安装的所有 Java
 
 ```csharp
 public static IEnumerable<JavaInfo> GetJavas()
 ```
 
-该方法不需要参数，可以直接返回所有Java的信息集合，
+该方法不需要参数，可以直接返回所有Java的信息集合
 
-有关详细信息，请参见下方文档。
+| 返回值                     | 描述                                        |
+|-------------------------|-------------------------------------------|
+| IEnumerable\<JavaInfo\> | [参数详解](/Fetcher/Java.html#详细-javainfo-定义) |
 
->[!TIP]
->搜寻器获取到的信息可以直接使用，每个版本的信息结构与下方相同。
-
-### `JavaUtil.GetJavaInfo` 获取单一Java虚拟机的信息
+### `JavaUtil.GetJavaInfo` 获取指定 Java 信息
 
 ```csharp
 public static JavaInfo GetJavaInfo(string javaPath)
 ```
 
-| 参数 | 类型 | 描述 |
-| :----: | :----: | :---------------: |
-| javaPath | string | Java虚拟机的所在路径（javaw可执行文件的绝对路径） |
+|    参数    |   类型   |       描述        |
+|:--------:|:------:|:---------------:|
+| javaPath | string | Java 可执行文件的所在位置 |
 
 ## 参数详解
 
 ### 详细 `JavaInfo` 定义
 
-| 参数 | 类型 | 描述 |
-| :----: | :----: | :---------------: |
-| Is64Bit | bool | 是否为64位Java版本 |
-| JavaVersion | string | Java的版本号（如17.0.0.3） |
-| JavaSlugVersion | int | Java版本号的缩写（如17.0.0.3对应的SlugVersion为17） |
-| JavaPath | string | Java虚拟机的路径（javaw可执行文件的绝对路径） |
-| JavaLibraryPath | string | Java虚拟机所在目录的绝对路径 |
+|       参数        |   类型   |      描述      |
+|:---------------:|:------:|:------------:|
+|     Is64Bit     |  bool  |  是否为 64 位版本  |
+|   JavaVersion   | string |   Java 版本    |
+| JavaSlugVersion |  int   |  Java 版本号缩写  |
+|    JavaPath     | string | Java 可执行文件路径 |
+| JavaLibraryPath | string |  Java 可执行文件所在目录   |
 
 ## 控制台示例
 
 >[!TIP]
->控制台示例只是为了更加方便的了解如何去使用, 不建议直接复制
+>控制台示例只是为了更加方便的了解如何使用, 不建议直接复制
 
 ```csharp
+// 获取已安装的所有 Java 版本信息集合
 var javaList = JavaUtil.GetJavas();
+
+// 获取指定的 Java 版本信息
 var javaVers = JavaUtil.GetJavaInfo().JavaVersion;
 ```
