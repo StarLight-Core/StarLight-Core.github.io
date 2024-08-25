@@ -43,7 +43,7 @@ public static JavaInfo GetJavaInfo(string javaPath)
 | JavaVersion | string | Java的版本号（如17.0.0.3） |
 | JavaSlugVersion | int | Java版本号的缩写（如17.0.0.3对应的SlugVersion为17） |
 | JavaPath | string | Java虚拟机的路径（javaw可执行文件的绝对路径） |
-| JavaLibraryPath | string | Java运行库的路径（我猜？） |
+| JavaLibraryPath | string | Java虚拟机所在目录的绝对路径 |
 
 ## 控制台示例
 
