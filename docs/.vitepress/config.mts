@@ -17,7 +17,7 @@ export default defineConfig({
     logo: '/logo.png',
     nav: [
       { text: '主页', link: '/' },
-      { text: '快速开始', link: '/markdown-examples' },
+      { text: '快速开始', link: '/About/Introduction' },
       { text: '反馈', link: 'https://github.com/Ink-Marks-Studio/StarLight.Core/issues' },
       { text: '墨痕工作室', link: 'https://imstudio.top' },
       { text: 'Nuget', link: 'https://www.nuget.org/packages/StarLight_Core' }
