@@ -75,12 +75,12 @@ public static GameCoreInfo GetGameCore(string versionId, string root = ".minecra
 ## 控制台示例
 
 > [!TIP]
-> 控制台示例只是为了更加方便的了解如何使用, 不建议直接复制
+> 控制台示例只是为了更加方便地了解如何使用, 不建议直接复制
 
 ```csharp
 // 获取所有版本信息集合
-var javaList = JavaUtil.GetJavas();
+var gamecoreList = GameCoreUtil.GetGameCores();
 
 // 获取指定版本信息
-var javaVersion = JavaUtil.GetJavaInfo();
+var gameCore = GameCoreUtil.GetGameCore("1.19.2");
 ```
