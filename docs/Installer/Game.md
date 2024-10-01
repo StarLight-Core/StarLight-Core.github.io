@@ -12,12 +12,12 @@ title: "游戏 安装器"
 public MinecraftInstaller(string gameId, string root = ".minecraft", Action<string,int>? onProgressChanged = null, Action<string>? onSpeedChanged = null)
 ```
 
-| 参数       | 类型     | 描述                    |
-|----------|--------|-----------------------|
-| gameId | string | 游戏版本号，如```"1.19.2"``` |
-| root | string | 下载文件夹，默认```".minecraft"``` |
-| onProgressChanged | Action<string,int>? | 当进度改变时的事件 |
-| onSpeedChanged | Action<string>? | 当速度改变时的事件 |
+| 参数                | 类型                    | 描述    |
+|-------------------|-----------------------|-------|
+| gameId            | string                | 游戏版本号 |
+| root              | string                | 下载文件夹 |
+| onProgressChanged | Action\<string,int\>? | 进度报告  |
+| onSpeedChanged    | Action\<string\>?     | 速度报告  |
 
 ## 方法参考
 
@@ -27,11 +27,11 @@ public MinecraftInstaller(string gameId, string root = ".minecraft", Action<stri
 public async Task<InstallResult> InstallAsync(string? gameCoreName = null, bool mandatory = false, CancellationToken cancellationToken = default)
 ```
 
-| 参数       | 类型     | 描述                    |
-|----------|--------|-----------------------|
-| gameCoreName | string | 游戏名称，如```"test"``` |
-| mandatory | bool | 版本隔离 |
-| cancellationToken | CancellationToken | TODO |
+| 参数                | 类型                | 描述   |
+|-------------------|-------------------|------|
+| gameCoreName      | string            | 游戏名称 |
+| mandatory         | bool              | 版本隔离 |
+| cancellationToken | CancellationToken | 取消令牌 |
 
 ## 控制台示例
 
@@ -42,8 +42,9 @@ public async Task<InstallResult> InstallAsync(string? gameCoreName = null, bool 
 MinecraftInstaller installer = new MinecraftInstaller("1.19.2",".minecraft");
 Installer.onProgressChanged += (status,progress)=>
 {
-  Console.WriteLine(status + "" + progress);
+    Console.WriteLine(status + "" + progress);
 };
 CancellationTokenSource cts = new CancellationTokenSource;
 CancellationToken cancellationToken = cts.token;
 await installer.InstallAsync("Test",true,cancellationToken)
+```

@@ -77,6 +77,9 @@ editLink: false
 
 控制台参考提供了较为完整的使用流程与使用方法, 有助于对方法使用的理解, 我们同样不建议直接复制
 
+## 🗒️快速开始
+跳转到 [快速开始](/About/QuickStart)
+
 ## 🧱我复制的代码出错了怎么办？
 
 首先，我们不建议您直接复制控制台示例。
@@ -88,36 +91,32 @@ editLink: false
 ```csharp
 void GetMicrosoftAccount()
 {
-var auth = new MicrosoftAuthentication(clientId);
-var deviceCodeInfo = await auth.RetrieveDeviceCodeInfo();
-Console.WriteLine(deviceCodeInfo.UserCode + " " + deviceCodeInfo.VerificationUri);
-var tokenInfo = await auth.GetTokenResponse(deviceCodeInfo);
-var userInfo = await auth.MicrosoftAuthAsync(tokenInfo, x =>
-{
-    Console.WriteLine(x);
-});
+    var auth = new MicrosoftAuthentication(clientId);
+    var deviceCodeInfo = await auth.RetrieveDeviceCodeInfo();
+    Console.WriteLine(deviceCodeInfo.UserCode + " " + deviceCodeInfo.VerificationUri);
+    var tokenInfo = await auth.GetTokenResponse(deviceCodeInfo);
+    var userInfo = await auth.MicrosoftAuthAsync(tokenInfo, x =>
+    {
+        Console.WriteLine(x);
+    });
 }
 ```
 
-以上代码不能运行，因为并没有在void前后添加async。
+以上代码不能运行，因为并没有在 void 前后添加 async 。
 
-- 我们的文档出错了。
+- 我们的文档出错了
 
-我知道这很少见，但是还是有。请检查拼写，或点击行数前的小灯泡修复。
+这种情况十分罕见，但是这不代表不存在。请请仔细检查拼写，或使用 IDE 快速修复进行修复。
 
-如果以上方法不奏效，请继续看。
+如果以上方法不奏效，请反馈问题。
 
-## 反馈问题
+## 🐛反馈问题
 
 反馈一个问题，请您必须完成以上自查清单。在反馈时，请同时附上报错详情、方法详细内容。
 
-> 没有错误报告无异于闭眼开车。
+> 没有错误报告无异于闭眼开车
 
-请勿询问过于弱智问题，群主和管理员和群友没有义务回答您的问题，请查看《提问的智慧》2010年简体中文版。请注意，这并不是一个可以解决错误的方案。
-
-## 🗒️快速开始
-跳转到 [快速开始](/About/QuickStart)
-
+请勿询问过于基础您只需要通过搜索或其他方法便可以解决的问题，无论是开发者亦或是志愿者都没有义务回答您的问题，请查看 [提问的智慧](https://lug.ustc.edu.cn/wiki/doc/smart-questions/)
 
 ## 🌐讨论
 欢迎加入Q群: [971192670](https://qm.qq.com/q/FcmJDYRoDQ)
