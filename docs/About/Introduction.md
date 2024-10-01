@@ -77,6 +77,44 @@ editLink: false
 
 控制台参考提供了较为完整的使用流程与使用方法, 有助于对方法使用的理解, 我们同样不建议直接复制
 
+## 🧱我复制的代码出错了怎么办？
+
+首先，我们不建议您直接复制控制台示例。
+
+其次，请先自查以下是否正确：
+
+- 没有添加异步。
+例：
+```csharp
+void GetMicrosoftAccount()
+{
+var auth = new MicrosoftAuthentication(clientId);
+var deviceCodeInfo = await auth.RetrieveDeviceCodeInfo();
+Console.WriteLine(deviceCodeInfo.UserCode + " " + deviceCodeInfo.VerificationUri);
+var tokenInfo = await auth.GetTokenResponse(deviceCodeInfo);
+var userInfo = await auth.MicrosoftAuthAsync(tokenInfo, x =>
+{
+    Console.WriteLine(x);
+});
+}
+```
+
+以上代码不能运行，因为并没有在void前后添加async。
+
+- 我们的文档出错了。
+
+我知道这很少见，但是还是有。请检查拼写，或点击行数前的小灯泡修复。
+
+如果以上方法不奏效，请继续看。
+
+## 反馈问题
+
+反馈一个问题，请您必须完成以上自查清单。在反馈时，请同时附上报错详情、方法详细内容。
+
+> 没有错误报告无异于闭眼开车。
+
+请勿询问过于弱智问题，群主和管理员和群友没有义务回答您的问题，请查看《提问的智慧》2010年简体中文版。请注意，这并不是一个可以解决错误的方案。
+
 ## 🗒️快速开始
 跳转到 [快速开始](/About/QuickStart)
 

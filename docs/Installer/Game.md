@@ -3,3 +3,47 @@ title: "游戏 安装器"
 ---
 
 # 游戏 安装器
+
+用来下载原版Minecraft。
+
+## 构造函数
+
+```csharp
+public MinecraftInstaller(string gameId, string root = ".minecraft", Action<string,int>? onProgressChanged = null, Action<string>? onSpeedChanged = null)
+```
+
+| 参数       | 类型     | 描述                    |
+|----------|--------|-----------------------|
+| gameId | string | 游戏版本号，如```"1.19.2"``` |
+| root | string | 下载文件夹，默认```".minecraft"``` |
+| onProgressChanged | Action<string,int>? | 当进度改变时的事件 |
+| onSpeedChanged | Action<string>? | 当速度改变时的事件 |
+
+## 方法参考
+
+### ``InstallAsync`` 异步安装
+
+```csharp
+public async Task<InstallResult> InstallAsync(string? gameCoreName = null, bool mandatory = false, CancellationToken cancellationToken = default)
+```
+
+| 参数       | 类型     | 描述                    |
+|----------|--------|-----------------------|
+| gameCoreName | string | 游戏名称，如```"test"``` |
+| mandatory | bool | 版本隔离 |
+| cancellationToken | CancellationToken | TODO |
+
+## 控制台示例
+
+> [!TIP]
+> 控制台示例只是为了更加方便的了解如何使用, 不建议直接复制
+
+```csharp
+MinecraftInstaller installer = new MinecraftInstaller("1.19.2",".minecraft");
+Installer.onProgressChanged += (status,progress)=>
+{
+  Console.WriteLine(status + "" + progress);
+};
+CancellationTokenSource cts = new CancellationTokenSource;
+CancellationToken cancellationToken = cts.token;
+await installer.InstallAsync("Test",true,cancellationToken)
