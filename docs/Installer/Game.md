@@ -30,7 +30,7 @@ public async Task<InstallResult> InstallAsync(string? gameCoreName = null, bool 
 | 参数                | 类型                | 描述   |
 |-------------------|-------------------|------|
 | gameCoreName      | string            | 游戏名称 |
-| mandatory         | bool              | 验证安装 |
+| mandatory         | bool              | 非验证安装 |
 | cancellationToken | CancellationToken | 取消令牌 |
 
 ## 控制台示例
