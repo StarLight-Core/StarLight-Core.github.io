@@ -4,7 +4,7 @@ title: "游戏 安装器"
 
 # 游戏 安装器
 
-用来下载原版Minecraft。
+用来下载原版 Minecraft 。
 
 ## 构造函数
 
@@ -15,7 +15,7 @@ public MinecraftInstaller(string gameId, string root = ".minecraft", Action<stri
 | 参数                | 类型                    | 描述    |
 |-------------------|-----------------------|-------|
 | gameId            | string                | 游戏版本号 |
-| root              | string                | 下载文件夹 |
+| root              | string                | 游戏目录 |
 | onProgressChanged | Action\<string,int\>? | 进度报告  |
 | onSpeedChanged    | Action\<string\>?     | 速度报告  |
 
@@ -42,7 +42,7 @@ public async Task<InstallResult> InstallAsync(string? gameCoreName = null, bool 
 MinecraftInstaller installer = new MinecraftInstaller("1.19.2",".minecraft");
 Installer.onProgressChanged += (status,progress)=>
 {
-    Console.WriteLine(status + "" + progress);
+    Console.WriteLine(status + " " + progress);
 };
 CancellationTokenSource cts = new CancellationTokenSource;
 CancellationToken cancellationToken = cts.token;
