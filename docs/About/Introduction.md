@@ -87,7 +87,7 @@ editLink: false
 其次，请先自查以下内容：
 
 - 未更新 StarLight.Core
-请先使用 Nuget 管理器或其他工具，手动更新等方式，更新 StarLight.Core 。
+请先使用 Nuget 管理器或其他工具，手动更新等方式，更新 StarLight.Core 。Nuget管理器请打开“预览版”选项，不优先地使用正式版。
 
 - 没有添加异步。
 例：
