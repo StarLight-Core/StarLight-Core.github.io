@@ -72,8 +72,8 @@ public async ValueTask<MicrosoftAccount> MicrosoftAuthAsync(GetTokenResponse tok
 | DeviceCode      | string | 设备代码                  |
 | UserCode        | string | 用户代码                  |
 | ClientId        | string | 在 Azure 中获取的 ClientId |
-| VerificationUri | string | 登录地址                  |
-| Message         | string | 提示消息                  |
+| VerificationUri | string | 验证地址                  |
+| Message         | string | 提示信息                  |
 
 ### 详细 ``GetTokenResponse`` 定义
 
