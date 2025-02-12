@@ -97,6 +97,12 @@ export default defineConfig({
           { text: 'Java 查找器', link: '/Fetcher/Java' }
         ],
       },
+	  {
+        text: '工具集',
+        items: [
+          { text: 'Modrinth 支持', link: '/Utilities/Modrinth' }
+        ],
+      },
     ],
 
     socialLinks: [
