@@ -40,7 +40,7 @@ public async Task<InstallResult> InstallAsync(string? gameCoreName = null, bool 
 
 ```csharp
 MinecraftInstaller installer = new MinecraftInstaller("1.19.2",".minecraft");
-Installer.onProgressChanged += (status,progress)=>
+installer.OnProgressChanged += (status,progress)=>
 {
     Console.WriteLine(status + " " + progress);
 };
