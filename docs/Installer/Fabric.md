@@ -43,12 +43,12 @@ public async Task<FabricInstallResult> InstallAsync(string? customId = null)
 > 控制台示例只是为了更加方便的了解如何使用, 不建议直接复制
 
 ```csharp
-CancellationTokenSource cts = new CancellationTokenSource;
-CancellationToken cancellationToken = cts.token;
-FabricInstaller installer = new FabricInstaller("1.19.2","0.16.0",".minecraft",cancellationToken);
+var cts = new CancellationTokenSource;
+var cancellationToken = cts.Token;
+var installer = new FabricInstaller("1.18.2","0.16.0",".minecraft",cancellationToken);
 Installer.onProgressChanged += (status,progress)=>
 {
-    Console.WriteLine(status + "" + progress);
+    Console.WriteLine(status + " " + progress);
 };
 await installer.InstallAsync()
 ```
