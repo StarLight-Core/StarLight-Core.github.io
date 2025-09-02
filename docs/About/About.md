@@ -13,11 +13,11 @@ import {
 
 const members = [
   {
-    avatar: 'https://github.com/Ink-Marks-Studio.png',
-    name: 'Ink-Marks-Studio',
+    avatar: 'https://github.com/Conlux-Studio.png',
+    name: 'Conlux-Studio',
     title: '所有者',
     links: [
-      { icon: 'github', link: 'https://github.com/Ink-Marks-Studio' }
+      { icon: 'github', link: 'https://github.com/Conlux-Studio' }
     ]
   },  
   {
@@ -29,11 +29,11 @@ const members = [
     ]
   },
   {
-    avatar: 'https://github.com/zhi-feng2008.png',
+    avatar: 'https://github.com/zhifengcode.png',
     name: 'ZhiFeng',
     title: '开发者',
     links: [
-      { icon: 'github', link: 'https://github.com/zhi-feng2008' }
+      { icon: 'github', link: 'https://github.com/zhifengcode' }
     ]
   },
   {
@@ -45,7 +45,7 @@ const members = [
     ]
   },
   {
-    avatar: '[https://github.com/FutureStudios-FSC.png](https://github.com/awaEric233.png)',
+    avatar: 'https://github.com/awaEric233.png',
     name: 'awa_Eric233',
     title: '贡献者',
     links: [
