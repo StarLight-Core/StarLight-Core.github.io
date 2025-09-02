@@ -45,11 +45,11 @@ const members = [
     ]
   },
   {
-    avatar: 'https://github.com/FutureStudios-FSC.png',
-    name: 'FutureStudios-FSC',
+    avatar: '[https://github.com/FutureStudios-FSC.png](https://github.com/awaEric233.png)',
+    name: 'awa_Eric233',
     title: '贡献者',
     links: [
-      { icon: 'github', link: 'https://github.com/FutureStudios-FSC' }
+      { icon: 'github', link: 'https://github.com/awaEric233' }
     ]
   },  
   {
