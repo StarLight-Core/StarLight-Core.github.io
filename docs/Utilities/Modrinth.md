@@ -2,6 +2,9 @@
 title: "Modrinth 支持"
 ---
 
+> [!WARNING]
+> 此页面未完成
+
 # Modrinth 支持
 
 Modrinth 支持
@@ -10,17 +13,17 @@ Modrinth 支持
 
 ## 方法参考
 
-### `Modrinth.example` 示例
+### `GetRandomMod` 示例
 
 ```csharp
-public static ...
+public static async Task<IEnumerable<ModrinthInfo>?> GetRandomMod(int count)
 ```
 
 描述
 
 | 返回值                     | 描述                             |
 |-------------------------|---------------------|
-| xxxxx | xxxxxxxxxxx |
+| Task<IEnumerable<ModrinthInfo>?> | 指定数量的模组信息合集 |
 
 
 
