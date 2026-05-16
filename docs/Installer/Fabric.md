@@ -20,7 +20,7 @@ public FabricInstaller(string gameVersion, string fabricVersion, string root = "
 
 | 参数                | 类型                    | 描述    |
 |-------------------|-----------------------|-------|
-| gameVersion            | string                | TODO |
+| gameVersion            | string                | 游戏版本 |
 | root              | string                | 下载文件夹 |
 | onProgressChanged | Action\<string,int\>? | 进度报告  |
 | onSpeedChanged    | Action\<string\>?     | 速度报告  |
