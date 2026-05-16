@@ -6,11 +6,11 @@ title: "Fabric 安装器"
 > 此页面未完成
 
 > [!TIP]
-> SL提供了``FetchFabricVersionsAsync``静态方法获取指定MineCraft的所有Fabric版本，无需实例化即可使用
+> Starlight.Core 提供了``FetchFabricVersionsAsync``静态方法用于获取指定 Minecraft 的所有 Fabric 版本，无需实例化即可使用
 
 # Fabric 安装器
 
-用来下载原版Minecraft。
+用于下载原版 Minecraft
 
 ## 构造函数
 
