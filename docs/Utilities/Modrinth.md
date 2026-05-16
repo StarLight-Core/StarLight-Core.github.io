@@ -23,7 +23,7 @@ public static async Task<IEnumerable<ModrinthInfo>?> GetRandomMod(int count)
 
 | 返回值                     | 描述                             |
 |-------------------------|---------------------|
-| Task<IEnumerable<ModrinthInfo>?> | 指定数量的模组信息合集 |
+| Task\<IEnumerable\<ModrinthInfo\>?\> | 指定数量的模组信息合集 |
 
 
 
